@@ -28,13 +28,12 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false, index: true|
-|addless|VARCHAR|null: false|
 |password|VARCHAR|null: false|
-|group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :messages, through::groups_users
+- has_many :messages
 - has_many :groups, through::groups_users
+- has_many :groups_users
 
 
 ## messagesテーブル
@@ -54,8 +53,9 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false, index: true|
 ### Association
-- has_many :messages, through::groups_users
+- has_many :messages
 - has_many :users, through: :groups_users
+- has_many :groups_users
 
 
 ## groups_usersテーブル
