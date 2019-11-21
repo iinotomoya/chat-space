@@ -46,7 +46,6 @@ Things you may want to cover:
 ### Association
 - be_long :user
 - be_long :group
-<!-- バリデーションで,メッセージと画像がどちらもない場合投稿できないようにする。-->
 
 
 ## groupsテーブル
