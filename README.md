@@ -31,10 +31,9 @@ Things you may want to cover:
 |addless|VARCHAR|null: false|
 |password|VARCHAR|null: false|
 |group_id|integer|null: false, foreign_key: true|
-|message_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :messagest, through: :groups_messages
+- has_many :messages, through::groups_users
 - has_many :groups, through::groups_users
 
 
@@ -54,9 +53,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
-|message_id|integer|null: false, foreign_key: true|
 ### Association
-- has_many :messages, through: :groups_messages
+- has_many :messages, through::groups_users
 - has_many :users, through: :groups_users
 
 
@@ -65,16 +63,6 @@ Things you may want to cover:
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
-### Association
-- belong_to :user
-- belong_to :group
-
-
-## groups_messagesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|group_id|integer|null: false, foreign_key: true|
-|message_id|integer|null: false, foreign_key: true|
 ### Association
 - belong_to :user
 - belong_to :group
