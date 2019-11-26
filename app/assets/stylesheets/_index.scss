@@ -1,0 +1,138 @@
+*{
+ box-sizing: border-box; 
+}
+ $blue1: #38aef0;
+ $side_white: #ffffff;
+ $main_gray: #434A54;
+
+.wrapp{
+  display: flex;
+  .side_bar{
+    &__top{
+      width: 300px;
+      height: 85px;
+      padding: 35px 20px 0;
+      background-color: #253141;
+      line-height: 40px;
+      color: $side_white;
+      line-height: 10px;
+      &__user{
+        float: left;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__icon{
+        float: right;
+        color: $side_white;
+        padding: 0 4px;
+      }
+    }
+    &__bottom{
+      color: $side_white;  
+      width: 300px;
+      height: calc(100vh - 85px);
+      padding: 20px 20px 0 20px;
+      background-color: #2f3e51;
+      &__group_name{
+        font-weight: bold;
+        font-size: 15px;
+        padding: 0 0 5px 0;
+      }
+      &__massage{
+        font-size: 11px;
+        padding: 0 0 40px 0;
+      }
+    }
+  }
+
+  .main_chat{
+    left: 300px;
+    width: calc(100vw - 300px);
+    &__header{
+      height: 85px;
+      padding: 35px 40px 0;
+      border-bottom: solid #eeeeee;
+      display: flex;
+      justify-content: space-between;
+      line-height: 10px;
+      &__left{
+        &__group_name{
+          color: #333333;
+          font-size: 20px;
+          padding-bottom: 15px;
+        }
+        &__menbers{
+          color: #999999;
+          font-size: 12px;
+        }
+      }
+      &__right{
+        &__edit{
+          padding: 15px 20px;
+          color: $blue1;
+          text-decoration: none;
+          border: solid 1px $blue1;
+        }
+      }
+    }
+    &__contents{
+      height: calc(100vh - 85px);
+      padding: 46px 40px 0;
+      background-color: #fafafa;
+      color: $main_gray;
+      position: relative;
+      &__nickname{
+        font-weight: bold;
+        font-size: 16px;
+        padding-bottom: 10px;
+        display: flex;
+        &--today{
+          padding: 5px 0 0 10px;
+          color: #999999;
+          font-size: 12px;
+        }
+      }
+      &__coment{
+        margin: 0;
+        font-size: 14px;
+        padding-bottom: 40px;
+      }
+    }
+    &__form{
+      height: 80px;
+      width: calc(100vw - 300px);
+      padding: 20px 40px;
+      background-color:#ddd;
+      position: absolute;
+      bottom: 0px;
+      display: flex;
+      justify-content: space-between;
+      &__coment{
+        width: 100%;
+        position: relative;
+        &--coment{
+          padding: 0 10px;
+          border-style: none;
+          height: 50px;
+          width: 100%;
+          color: $main_gray;
+        }
+        &__image{
+          position: absolute;
+          top: 7px;
+          right: 10px;
+          &--icon{
+          }
+        }
+      }
+      &__button{
+        margin-left: 15px;
+        height: 50px;
+        width: 100px;
+        color: #eeeeee;
+        background-color: $blue1;
+        cursor: pointer;
+      }
+    }
+  }
+}
