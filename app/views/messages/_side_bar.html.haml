@@ -3,12 +3,15 @@
     .side_bar__top__user
       = current_user.name
     .side_bar__top__icon
-      = link_to "#", class: "side_bar__top__icon" do
+      = link_to new_group_path, class: "side_bar__top__icon" do
         = icon('fas fa-cog', class:"side_bar__top__icon__right")
       = link_to edit_user_path(current_user), class: "side_bar__top__icon" do
         = icon('far fa-edit', class:"side_bar__top__icon__left")
   .side_bar__bottom
-    .side_bar__bottom__group_name
-      グループ名
-    .side_bar__bottom__massage
-      メッセージとか
+    - current_user.groups.each do |group|
+      .side_bar__bottom__group
+        = link_to group_messages_path(group) do
+          .side_bar__bottom__group__name
+            = group.name
+          .side_bar__bottom__group__massage
+            メッセージとか

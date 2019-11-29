@@ -24,19 +24,22 @@
       }
     }
     &__bottom{
-      padding: 20px 20px 0 20px;
+      padding: 20px 20px 0;
       width: 300px;
-      height: calc(100vh - 85px);
-      color: $side_white;
+      height: calc(100vh - 100px);
       background-color: #2f3e51;
-      &__group_name{
-        font-weight: bold;
-        font-size: 15px;
-        padding: 0 0 5px 0;
-      }
-      &__massage{
-        font-size: 11px;
-        padding: 0 0 40px 0;
+      &__group{
+        &__name{
+          font-weight: bold;
+          font-size: 15px;
+          padding: 0 0 5px 0;
+          color: $side_white;
+        }
+        &__massage{
+          font-size: 11px;
+          padding: 0 0 40px 0;
+          color: $side_white;
+        }  
       }
     }
   }
@@ -73,7 +76,7 @@
       }
     }
     &__contents{
-      height: calc(100vh - 85px);
+      height: calc(100vh - 100px);
       padding: 46px 40px 0;
       background-color: #fafafa;
       color: $main_gray;
