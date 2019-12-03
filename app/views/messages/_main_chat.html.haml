@@ -17,16 +17,9 @@
 
   .main_chat__form  
     = form_for [@group, @message] do |f|
-      = f.text_field :content, class: 'main_chat__form__coment'
-        .main_chat__form__coment
-          = f.label :image, class: 'main_chat__form__coment__image'
-            = icon('fas fa-image', 'image', class: 'main_chat__form__coment__image__icon')
-            = f.file_field :image, class: 'main_chat__form__coment__image__hidden'
-          = f.submit 'Send', class: 'main_chat__form__button'
-
-
-      -#   %input{placeholder: "type a message", type: "text", class: "main_chat__form__coment--coment"}
-      -#   %label{class: "main_chat__form__coment__image"}
-      -#     %input{type: "file", class: "main_chat__form__coment__image__form"}
-      -#     = icon('fas fa-image', class:"main_chat__form__coment__image__icon")
-      -# %input{type: "submit", value: "Send", class: "main_chat__form__button"}
+      = f.text_field :message, class: 'main_chat__form__coment'
+      .main__aaa
+        = f.label :image, class: 'main_chat__form__coment__image' do
+          = icon('fas fa-image', 'image', class: 'main_chat__form__coment__image__icon')
+          = f.file_field :image, class: 'main_chat__form__coment__image__hidden'
+      = f.submit 'Send', class: 'main_chat__form__button'
