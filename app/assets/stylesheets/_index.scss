@@ -2,7 +2,6 @@
   box-sizing: border-box; 
 }
 .wrapper{
-  position: fixed;
   display: flex;
   .side_bar{
     &__top{
@@ -77,10 +76,11 @@
       }
     }
     &__contents{
-      height: calc(100vh - 100px);
       padding: 46px 40px 0;
       background-color: #fafafa;
       color: $main_gray;
+      position: fixed;
+
       position: relative;
       &__nickname{
         font-weight: bold;

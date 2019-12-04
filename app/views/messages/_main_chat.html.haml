@@ -1,4 +1,5 @@
 .main_chat
+  = render "main_header", group: @group
   = render @messages
 .form  
   = form_for [@group, @message] do |f|
