@@ -4,9 +4,9 @@ class GroupsController < ApplicationController
   def index
     @group= Group.new
   end
+  
   def edit
   end
-
 
   def update
     if @group.update(group_params)

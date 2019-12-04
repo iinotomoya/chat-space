@@ -1,25 +1,10 @@
 .main_chat
-  .main_chat__header
-    .main_chat__header__left
-      .main_chat__header__left__group_name
-        グループ名
-      .main_chat__header__left__menbers
-        メンバー
-    .main_chat__header__right
-      = link_to 'Edit', new_group_path, class: "main_chat__header__right__edit"
-  .main_chat__contents
-    .main_chat__contents__nickname
-      名前
-      .main_chat__contents__nickname--today
-        2000/12/3/木曜/11:30:00
-    .main_chat__contents__coment
-      コメント欄
-
-  .main_chat__form  
-    = form_for [@group, @message] do |f|
-      = f.text_field :message, class: 'main_chat__form__coment'
-      .main__aaa
-        = f.label :image, class: 'main_chat__form__coment__image' do
-          = icon('fas fa-image', 'image', class: 'main_chat__form__coment__image__icon')
-          = f.file_field :image, class: 'main_chat__form__coment__image__hidden'
-      = f.submit 'Send', class: 'main_chat__form__button'
+  = render @messages
+.form  
+  = form_for [@group, @message] do |f|
+    = f.text_field :message, class: 'form__text'
+    .form__mask
+      = f.label :image, class: 'form__mask__image' do
+        = icon('fas fa-image', 'image', class: 'icon')
+        = f.file_field :image, class: 'hidden'
+    = f.submit 'Send', class: 'form__mask__button'
