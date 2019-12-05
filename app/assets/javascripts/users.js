@@ -8,8 +8,8 @@ $(function() {
       data: { keyword: input },
       dataType: "json"
     })
-    .done(function() {
-      console.log("成功です");
+    .done(function(user) {
+
     })
     .fail(function() {
       console.log("失敗です");
