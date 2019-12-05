@@ -76,27 +76,29 @@
       }
     }
     &__contents{
-      padding: 46px 40px 0;
-      background-color: #fafafa;
-      color: $main_gray;
-      position: fixed;
-
-      position: relative;
-      &__nickname{
-        font-weight: bold;
-        font-size: 16px;
-        padding-bottom: 10px;
-        display: flex;
-        &--today{
-          padding: 5px 0 0 10px;
-          color: #999999;
-          font-size: 12px;
+      height: calc(100vh - 100px);
+      &__content{
+        padding: 46px 40px 0;
+        background-color: #fafafa;
+        color: $main_gray;
+        position: fixed;
+        position: relative;
+        &__nickname{
+          font-weight: bold;
+          font-size: 16px;
+          padding-bottom: 10px;
+          display: flex;
+          &--today{
+            padding: 5px 0 0 10px;
+            color: #999999;
+            font-size: 12px;
+          }
         }
-      }
-      &__coment{
-        margin: 0;
-        font-size: 14px;
-        padding-bottom: 40px;
+        &__coment{
+          margin: 0;
+          font-size: 14px;
+          padding-bottom: 40px;
+        }
       }
     }
   }

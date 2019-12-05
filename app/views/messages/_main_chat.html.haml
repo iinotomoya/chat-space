@@ -1,6 +1,7 @@
 .main_chat
   = render "main_header", group: @group
-  = render @messages
+  .main_chat__contents
+    = render @messages
 .form  
   = form_for [@group, @message] do |f|
     = f.text_field :message, class: 'form__text'
