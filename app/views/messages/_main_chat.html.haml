@@ -1,5 +1,7 @@
 .main_chat
-  = render @messages
+  = render "main_header", group: @group
+  .main_chat__contents
+    = render @messages
 .form  
   = form_for [@group, @message] do |f|
     = f.text_field :message, class: 'form__text'
@@ -7,4 +9,4 @@
       = f.label :image, class: 'form__mask__image' do
         = icon('fas fa-image', 'image', class: 'icon')
         = f.file_field :image, class: 'hidden'
-    = f.submit 'Send', class: 'form__mask__button'
+    = f.submit 'Send', class: 'form__button'

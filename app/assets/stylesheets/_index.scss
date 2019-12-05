@@ -2,7 +2,6 @@
   box-sizing: border-box; 
 }
 .wrapper{
-  position: fixed;
   display: flex;
   .side_bar{
     &__top{
@@ -25,9 +24,11 @@
       }
     }
     &__bottom{
+      top: 100px;
       padding: 20px 20px 0;
       width: 300px;
       height: calc(100vh - 100px);
+      overflow: scroll;
       background-color: #2f3e51;
       &__group{
         &__name{
@@ -77,26 +78,31 @@
       }
     }
     &__contents{
-      height: calc(100vh - 100px);
-      padding: 46px 40px 0;
-      background-color: #fafafa;
-      color: $main_gray;
-      position: relative;
-      &__nickname{
-        font-weight: bold;
-        font-size: 16px;
-        padding-bottom: 10px;
-        display: flex;
-        &--today{
-          padding: 5px 0 0 10px;
-          color: #999999;
-          font-size: 12px;
+      top: 100px;
+      height: calc(100vh - 180px);
+      overflow: scroll;
+      &__content{
+        padding: 46px 40px 0;
+        background-color: #fafafa;
+        color: $main_gray;
+        position: fixed;
+        position: relative;
+        &__nickname{
+          font-weight: bold;
+          font-size: 16px;
+          padding-bottom: 10px;
+          display: flex;
+          &--today{
+            padding: 5px 0 0 10px;
+            color: #999999;
+            font-size: 12px;
+          }
         }
-      }
-      &__coment{
-        margin: 0;
-        font-size: 14px;
-        padding-bottom: 40px;
+        &__coment{
+          margin: 0;
+          font-size: 14px;
+          padding-bottom: 40px;
+        }
       }
     }
   }
@@ -109,17 +115,23 @@
     bottom: 0;
     background-color:#ddd;
     position: fixed;
-    display: flex;
     &__text{
       padding: 0 10px;
       border-style: none;
       height: 50px;
-      width: 100px;
+      width: 90%;
       color: $main_gray;
+      position: relative;
     }
     &__mask{
-      height: 50px;
-      line-height: 30px;
+      // height: 50px;
+      line-height: 50px;
+      &__image{
+        font-size: 40px;
+        position: absolute;
+        right: 150px;
+        cursor: pointer;
+      }
     }
     &__button{
       margin-left: 15px;
