@@ -3,20 +3,19 @@ $(function(){
   function buildMessage(message){
     var html = `<div class="main_chat__contents__content">
                   <div class="main_chat__contents__content__nickname">
+                    ${message.user_name}
+                    <div class="main_chat__contents__content__nickname--today">
+                      ${message.created_at}
+                    </div>
+                  </div>
+
+                  <div class="main_chat__contents__content__coment">
                     ${message.message}
                   </div>
-                  <div class="main_chat__contents__content__nickname--today">
-                    ${message.created_at}
-                  </div>
                 </div>`
+
     return html
   }
-  // function buildCreated_at(message){
-  //   var html = `<div class="main_chat__contents__content">
-  //               </div>`
-  //   return html
-  // }
-
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -34,12 +33,9 @@ $(function(){
     .done(function(message){
       var html = buildMessage(message)
       $('.main_chat__contents').append(html)
-      // var html = buildCreated_at(message)
-      // $('.main_chat__contents').append(html)
-
+      $('.main_chat__contents').animate({ scrollTop: $('.main_chat__contents')[0].scrollHeight});
       $('#message_message').val('')
       $(".form__button").removeAttr("disabled");
-
     })
     
     .fail(function(){
