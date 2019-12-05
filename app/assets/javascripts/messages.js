@@ -1,6 +1,6 @@
 $(function(){
 
-  function buildMessage(message){
+  function buildMessage(message){  
     var html = `<div class="main_chat__contents__content">
                   <div class="main_chat__contents__content__nickname">
                     ${message.user_name}
@@ -13,7 +13,6 @@ $(function(){
                     ${message.message}
                   </div>
                 </div>`
-
     return html
   }
 
@@ -40,6 +39,9 @@ $(function(){
     
     .fail(function(){
       alert("エラー");
+      $('#message_message').val('')
+      $(".form__button").removeAttr("disabled");
+
     })
     
     .always(() => {

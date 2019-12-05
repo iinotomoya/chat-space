@@ -24,9 +24,11 @@
       }
     }
     &__bottom{
+      top: 100px;
       padding: 20px 20px 0;
       width: 300px;
       height: calc(100vh - 100px);
+      overflow: scroll;
       background-color: #2f3e51;
       &__group{
         &__name{
