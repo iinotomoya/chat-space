@@ -1,12 +1,4 @@
 $(function(){
-  // function buttonReset() {
-  //   document.sampleform.reset();
-  // }
-
-  // $('#new_message').click(function(){
-  //   $('#new_message')[0].reset();
-  // });
-
   function buildMessage(message){  
     var html = `<div class="main_chat__contents__content">
                   <div class="main_chat__contents__content__nickname">
@@ -25,6 +17,7 @@ $(function(){
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
+    console.log(new);
     var formData = new FormData(this);
     var url = $(this).attr('action');
     $.ajax({
