@@ -1,4 +1,11 @@
 $(function(){
+  // function buttonReset() {
+  //   document.sampleform.reset();
+  // }
+
+  // $('#new_message').click(function(){
+  //   $('#new_message')[0].reset();
+  // });
 
   function buildMessage(message){  
     var html = `<div class="main_chat__contents__content">
@@ -33,18 +40,16 @@ $(function(){
       var html = buildMessage(message)
       $('.main_chat__contents').append(html)
       $('.main_chat__contents').animate({ scrollTop: $('.main_chat__contents')[0].scrollHeight});
-      $('#message_message').val('')
-      $(".form__button").removeAttr("disabled");
+      $('#new_message')[0].reset()
     })
     
     .fail(function(){
       alert("エラー");
-      $('#message_message').val('')
-      $(".form__button").removeAttr("disabled");
-
     })
     
     .always(() => {
+      $(".form__button").removeAttr("disabled");
+      $('#new_message')[0].reset()
     });
   })
 })
