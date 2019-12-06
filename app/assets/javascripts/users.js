@@ -13,7 +13,6 @@ $(function() {
     $(`#${userId}`).append(html);
   }
  
-
   function addUser(user) {
     let html = `
       <div class="chat-group-user clearfix">
@@ -33,7 +32,6 @@ $(function() {
     `;
     $("#user-search-result").append(html);
   }
- 
 
   $("#user-search-field").on("keyup", function() {
     let input = $("#user-search-field").val();
@@ -65,7 +63,6 @@ $(function() {
 /////////////////////////////////////////////////////////////////////////////////////
 //追加ボタンが押された
   $('#user-search-result').on('click', ".user-search-add", function(){
-    console.log("ik")
     const userName = $(this).attr("data-user-name");
     const userId = $(this).attr("data-user-id");
     $(this)
@@ -74,7 +71,11 @@ $(function() {
     addDeleteUser(userName, userId);
     addMember(userId);
 
-//メンバーの追加さき chat-group-form__field clearfix
+  });
 
+  $(document).on("click", ".chat-group-user__btn--remove", function() {
+    $(this)
+      .parent()
+      .remove();
   });
 });
