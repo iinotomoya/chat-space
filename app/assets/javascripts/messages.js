@@ -1,12 +1,4 @@
 $(function(){
-  // function buttonReset() {
-  //   document.sampleform.reset();
-  // }
-
-  // $('#new_message').click(function(){
-  //   $('#new_message')[0].reset();
-  // });
-
   function buildMessage(message){  
     var html = `<div class="main_chat__contents__content">
                   <div class="main_chat__contents__content__nickname">
