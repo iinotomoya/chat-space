@@ -54,7 +54,7 @@ $(function() {
       }
     })
     .fail(function() {
-      console.log("失敗です")
+      alert("失敗です");
     });
   });
 

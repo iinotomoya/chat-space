@@ -8,7 +8,6 @@ $(function(){
       data: {id: last_message_id}
     })
     .done(function(messages) {
-      console.log("okok")
       var insertHTML = '';
       $.each(messages, function(i, message) {
         insertHTML += buildMessage(message)
@@ -18,7 +17,7 @@ $(function(){
     })
 
     .fail(function() {
-      console.log('error');
+      alert("エラー");
     })
   };
 
