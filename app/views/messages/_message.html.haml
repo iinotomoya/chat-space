@@ -1,7 +1,8 @@
-.main_chat__contents__content
+.main_chat__contents__content{data: {id: message.id}}
   .main_chat__contents__content__nickname
     = message.user.name
     .main_chat__contents__content__nickname--today
       = message.created_at.strftime("%Y/%m/%d %H:%M")
   .main_chat__contents__content__coment
     = message.message
+    = image_tag message.image
