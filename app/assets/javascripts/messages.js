@@ -8,6 +8,7 @@ $(function(){
       data: {id: last_message_id}
     })
     .done(function(messages) {
+      console.log("okok")
       var insertHTML = '';
       $.each(messages, function(i, message) {
         insertHTML += buildMessage(message)
@@ -34,6 +35,9 @@ $(function(){
                       <p class="lower-message__content">
                         ${message.message}
                       </p>
+                    </div>
+                    <div class="lower-message">
+                      <img src=" ${message.image} " class="lower-message__image" >
                     </div>
                   </div>`
       return html;
@@ -62,9 +66,7 @@ $(function(){
                       </div>
                     </div>
                     <div class="lower-message">
-                      <p class="lower-message__content">
-                        ${message.message}
-                      </p>
+                      <img src=" ${message.image} " class="lower-message__image" >
                     </div>
                   </div>`
       return html;
@@ -101,5 +103,7 @@ $(function(){
     });
   })
 
-  setInterval(reloadMessages, 7000);
+  if (document.URL.match(/messages/) ){
+    setInterval(reloadMessages, 7000);
+  }
 })
