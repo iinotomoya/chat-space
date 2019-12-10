@@ -18,3 +18,4 @@
 
 .history
 public/uploads
+config/secrets.yml
