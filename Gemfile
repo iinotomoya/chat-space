@@ -64,3 +64,7 @@ gem 'faker'
 gem 'factory_bot_rails'
 gem 'pry-byebug'
 gem 'pry-rails'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
