@@ -1,0 +1,98 @@
+00:00 deploy:upload
+      Uploading config/secrets.yml 100.0%
+00:00 git:wrapper
+      01 mkdir -p /tmp
+    ✔ 01 ec2-user@54.178.241.77 0.093s
+      Uploading /tmp/git-ssh-chat-space-production-iinotomoya.sh 100.0%
+      02 chmod 700 /tmp/git-ssh-chat-space-production-iinotomoya.sh
+    ✔ 02 ec2-user@54.178.241.77 0.086s
+00:00 git:check
+      01 git ls-remote git@github.com:iinotomoya/chat-space.git HEAD
+      01 a034d22f5d23ce4afa59096593e79de92fd7ad79	HEAD
+    ✔ 01 ec2-user@54.178.241.77 2.471s
+00:02 deploy:check:directories
+      01 mkdir -p /var/www/chat-space/shared /var/www/chat-space/releases
+    ✔ 01 ec2-user@54.178.241.77 0.056s
+00:02 deploy:check:linked_dirs
+      01 mkdir -p /var/www/chat-space/shared/log /var/www/chat-space/shared/tmp/pids /var/www/chat-space/shared/tmp/cache /var/www/chat-space/shared/tmp/sockets /var/www/chat-space/shared/vendor/bundle /var/www/chat-space/shared/public/system /var/www/chat-space/shared/public/uploads /var/www/chat-space/shared/public/assets
+    ✔ 01 ec2-user@54.178.241.77 0.089s
+00:03 deploy:check:make_linked_dirs
+      01 mkdir -p /var/www/chat-space/shared/config
+    ✔ 01 ec2-user@54.178.241.77 0.094s
+00:03 git:clone
+      The repository mirror is at /var/www/chat-space/repo
+00:03 git:update
+      01 git remote set-url origin git@github.com:iinotomoya/chat-space.git
+    ✔ 01 ec2-user@54.178.241.77 0.109s
+      02 git remote update --prune
+      02 Fetching origin
+    ✔ 02 ec2-user@54.178.241.77 2.573s
+00:06 git:create_release
+      01 mkdir -p /var/www/chat-space/releases/20191211034306
+    ✔ 01 ec2-user@54.178.241.77 0.121s
+      02 git archive master | /usr/bin/env tar -x -f - -C /var/www/chat-space/releases/20191211034306
+    ✔ 02 ec2-user@54.178.241.77 0.111s
+00:07 deploy:set_current_revision
+      01 echo "a034d22f5d23ce4afa59096593e79de92fd7ad79" > REVISION
+    ✔ 01 ec2-user@54.178.241.77 0.161s
+00:07 deploy:symlink:linked_files
+      01 mkdir -p /var/www/chat-space/releases/20191211034306/config
+    ✔ 01 ec2-user@54.178.241.77 0.104s
+      02 ln -s /var/www/chat-space/shared/config/secrets.yml /var/www/chat-space/releases/20191211034306/config/secrets.yml
+    ✔ 02 ec2-user@54.178.241.77 0.160s
+00:08 deploy:symlink:linked_dirs
+      01 mkdir -p /var/www/chat-space/releases/20191211034306 /var/www/chat-space/releases/20191211034306/tmp /var/www/chat-space/releases/20191211034306/vendor /var/www/chat-space/releases/20191211034306/public
+    ✔ 01 ec2-user@54.178.241.77 0.110s
+      02 rm -rf /var/www/chat-space/releases/20191211034306/log
+    ✔ 02 ec2-user@54.178.241.77 0.097s
+      03 ln -s /var/www/chat-space/shared/log /var/www/chat-space/releases/20191211034306/log
+    ✔ 03 ec2-user@54.178.241.77 0.128s
+      04 ln -s /var/www/chat-space/shared/tmp/pids /var/www/chat-space/releases/20191211034306/tmp/pids
+    ✔ 04 ec2-user@54.178.241.77 0.131s
+      05 ln -s /var/www/chat-space/shared/tmp/cache /var/www/chat-space/releases/20191211034306/tmp/cache
+    ✔ 05 ec2-user@54.178.241.77 0.117s
+      06 ln -s /var/www/chat-space/shared/tmp/sockets /var/www/chat-space/releases/20191211034306/tmp/sockets
+    ✔ 06 ec2-user@54.178.241.77 0.103s
+      07 ln -s /var/www/chat-space/shared/vendor/bundle /var/www/chat-space/releases/20191211034306/vendor/bundle
+    ✔ 07 ec2-user@54.178.241.77 0.100s
+      08 ln -s /var/www/chat-space/shared/public/system /var/www/chat-space/releases/20191211034306/public/system
+    ✔ 08 ec2-user@54.178.241.77 0.102s
+      09 rm -rf /var/www/chat-space/releases/20191211034306/public/uploads
+    ✔ 09 ec2-user@54.178.241.77 0.144s
+      10 ln -s /var/www/chat-space/shared/public/uploads /var/www/chat-space/releases/20191211034306/public/uploads
+    ✔ 10 ec2-user@54.178.241.77 0.666s
+      11 ln -s /var/www/chat-space/shared/public/assets /var/www/chat-space/releases/20191211034306/public/assets
+    ✔ 11 ec2-user@54.178.241.77 0.088s
+00:12 bundler:install
+      01 $HOME/.rbenv/bin/rbenv exec bundle install --path /var/www/chat-space/shared/bundle --jobs 4 --without development test --deployment --quiet
+    ✔ 01 ec2-user@54.178.241.77 0.553s
+00:13 deploy:assets:precompile
+      01 $HOME/.rbenv/bin/rbenv exec bundle exec rake assets:precompile
+    ✔ 01 ec2-user@54.178.241.77 2.872s
+00:16 deploy:assets:backup_manifest
+      01 mkdir -p /var/www/chat-space/releases/20191211034306/assets_manifest_backup
+    ✔ 01 ec2-user@54.178.241.77 0.087s
+      02 cp /var/www/chat-space/releases/20191211034306/public/assets/.sprockets-manifest-9a2b8355f0806f65c73ef0b65aefa072.json /var/www/chat-space/releases/20191211034306/assets_manifest_backup
+    ✔ 02 ec2-user@54.178.241.77 0.093s
+00:16 deploy:migrate
+      [deploy:migrate] Run `rake db:migrate`
+00:16 deploy:migrating
+      01 $HOME/.rbenv/bin/rbenv exec bundle exec rake db:migrate
+    ✔ 01 ec2-user@54.178.241.77 2.601s
+00:19 deploy:symlink:release
+      01 ln -s /var/www/chat-space/releases/20191211034306 /var/www/chat-space/releases/current
+    ✔ 01 ec2-user@54.178.241.77 0.079s
+      02 mv /var/www/chat-space/releases/current /var/www/chat-space
+    ✔ 02 ec2-user@54.178.241.77 0.082s
+00:19 unicorn:start
+      unicorn is running...
+      unicorn restarting...
+      01 kill -s USR2 `cat /var/www/chat-space/shared/tmp/pids/unicorn.pid`
+    ✔ 01 ec2-user@54.178.241.77 0.088s
+00:20 deploy:cleanup
+      Keeping 5 of 6 deployed releases on 54.178.241.77
+      01 rm -rf /var/www/chat-space/releases/20191210125159
+    ✔ 01 ec2-user@54.178.241.77 0.139s
+00:20 deploy:log_revision
+      01 echo "Branch master (at a034d22f5d23ce4afa59096593e79de92fd7ad79) deployed as release 20191211034306 by iinotomoya" >> /var/www/chat-space/revisions.log
+    ✔ 01 ec2-user@54.178.241.77 0.119s
