@@ -65,7 +65,7 @@ gem 'factory_bot_rails'
 gem 'pry-byebug'
 gem 'pry-rails'
 gem 'fog-aws'
-gem 'rmagick'
+# gem 'rmagick'
 
 group :production do
   gem 'unicorn', '5.4.1'
